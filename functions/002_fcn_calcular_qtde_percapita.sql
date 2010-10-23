@@ -1,7 +1,3 @@
---
--- Name: fcn_calcular_qtde_percapita(character varying, integer, integer, integer, integer); Type: FUNCTION; Schema: alimentos; Owner: -
---
-
 CREATE FUNCTION fcn_calcular_qtde_percapita(character varying, integer, integer, integer, integer) RETURNS numeric
     AS $_$
 DECLARE

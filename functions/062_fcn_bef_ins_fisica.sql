@@ -1,7 +1,3 @@
---
--- Name: fcn_bef_ins_fisica(); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_bef_ins_fisica() RETURNS "trigger"
     AS $$
    DECLARE

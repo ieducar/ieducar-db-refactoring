@@ -1,7 +1,3 @@
---
--- Name: fcn_aft_ins_endereco_externo(); Type: FUNCTION; Schema: cadastro; Owner: -
---
-
 CREATE FUNCTION fcn_aft_ins_endereco_externo() RETURNS "trigger"
     AS $$
 DECLARE

@@ -1,7 +1,3 @@
---
--- Name: fcn_update_juridica(integer, character varying, character varying, character varying, character, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_update_juridica(integer, character varying, character varying, character varying, character, integer, integer) RETURNS integer
     AS $_$
 DECLARE
@@ -13,7 +9,7 @@ DECLARE
       v_origem_gravacao ALIAS for $5;
       v_idpes_rev ALIAS for $6;
       v_idsis_rev ALIAS for $7;
-  
+
 BEGIN
   -- Atualiza dados na tabela juridica
   UPDATE cadastro.juridica

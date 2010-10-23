@@ -1,7 +1,3 @@
---
--- Name: fcn_update_funcionario(numeric, integer, integer, character varying, character, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_update_funcionario(numeric, integer, integer, character varying, character, integer, integer) RETURNS integer
     AS $_$
 DECLARE
@@ -27,33 +23,33 @@ BEGIN
   ELSE
     v_id_set_aux := v_id_set;
   END IF;
-    
+
   IF v_id_set_aux IS NULL AND v_id_set = -1 THEN
     -- Sql utilizado para ativar e desativar o registro na tabela funcionário
-     UPDATE cadastro.funcionario 
+     UPDATE cadastro.funcionario
       SET situacao=v_situacao_aux,
       origem_gravacao = v_origem_gravacao,
       idpes_rev = v_idpes_rev,
       idsis_rev = v_idsis_rev,
       data_rev = CURRENT_DATE,
-      operacao = 'A' 
-      WHERE   
-          matricula=v_matricula_aux AND 
-          idins=v_id_ins_aux;  
-  ELSE 
-    UPDATE cadastro.funcionario 
+      operacao = 'A'
+      WHERE
+          matricula=v_matricula_aux AND
+          idins=v_id_ins_aux;
+  ELSE
+    UPDATE cadastro.funcionario
       SET idset=v_id_set_aux,
           situacao=v_situacao_aux,
           origem_gravacao = v_origem_gravacao,
           idpes_rev = v_idpes_rev,
           idsis_rev = v_idsis_rev,
           data_rev = CURRENT_TIMESTAMP,
-            operacao = 'A' 
-      WHERE 
-          matricula=v_matricula_aux AND 
+            operacao = 'A'
+      WHERE
+          matricula=v_matricula_aux AND
           idins=v_id_ins_aux;
   END IF;
-  
+
   RETURN 0;
 END;$_$
     LANGUAGE plpgsql;

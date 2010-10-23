@@ -1,7 +1,3 @@
---
--- Name: fcn_aft_documento(); Type: FUNCTION; Schema: cadastro; Owner: -
---
-
 CREATE FUNCTION fcn_aft_documento() RETURNS "trigger"
     AS $$
 DECLARE

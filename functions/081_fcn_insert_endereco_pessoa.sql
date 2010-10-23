@@ -1,7 +1,3 @@
---
--- Name: fcn_insert_endereco_pessoa(integer, integer, integer, integer, integer, integer, character varying, character varying, character varying, character, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_insert_endereco_pessoa(integer, integer, integer, integer, integer, integer, character varying, character varying, character varying, character, integer, integer) RETURNS integer
     AS $_$
 DECLARE

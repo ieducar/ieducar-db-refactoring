@@ -1,7 +1,3 @@
---
--- Name: fcn_calcular_qtde_cardapio(character varying, integer, integer, numeric); Type: FUNCTION; Schema: alimentos; Owner: -
---
-
 CREATE FUNCTION fcn_calcular_qtde_cardapio(character varying, integer, integer, numeric) RETURNS character varying
     AS $_$
 DECLARE
@@ -34,7 +30,7 @@ BEGIN
       v_qtde := v_qtde + (v_qtde_per_capita * reg_unidade.matr * v_correcao * v_coccao);
     END IF;
   END LOOP;
-  
+
   v_qtde_retorno := trim(to_char(v_qtde, '9999999999.99'));
   RETURN v_qtde_retorno;
 END;$_$

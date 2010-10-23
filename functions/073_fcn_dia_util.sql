@@ -1,7 +1,3 @@
---
--- Name: fcn_dia_util(date, date); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_dia_util(date, date) RETURNS integer
     AS $_$
 DECLARE

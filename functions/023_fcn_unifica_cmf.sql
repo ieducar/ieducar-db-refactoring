@@ -1,14 +1,10 @@
---
--- Name: fcn_unifica_cmf(numeric, numeric); Type: FUNCTION; Schema: consistenciacao; Owner: -
---
-
 CREATE FUNCTION fcn_unifica_cmf(numeric, numeric) RETURNS integer
     AS $_$
 DECLARE
   -- Parametro recebidos
   v_idpesVelho ALIAS for $1;
   v_idpesNovo ALIAS for $2;
-  
+
 BEGIN
   --Unificando registros do SECM (Sistema de Emissao de Certidoes Municipais)--
   EXECUTE 'SELECT consistenciacao.fcn_unifica_secm('||v_idpesVelho||','||v_idpesNovo||');';

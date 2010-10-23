@@ -1,7 +1,3 @@
---
--- Name: fcn_insert_funcionario(integer, integer, integer, integer, character varying, character, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_insert_funcionario(integer, integer, integer, integer, character varying, character, integer, integer) RETURNS integer
     AS $_$
 DECLARE

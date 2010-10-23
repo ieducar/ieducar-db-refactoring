@@ -1,7 +1,3 @@
---
--- Name: fcn_grava_historico_fisica(); Type: FUNCTION; Schema: historico; Owner: -
---
-
 CREATE FUNCTION fcn_grava_historico_fisica() RETURNS "trigger"
     AS $$
 DECLARE
@@ -66,17 +62,17 @@ BEGIN
    v_data_cad     := OLD.data_cad;
    v_idsis_cad      := OLD.idsis_cad;
    v_operacao     := OLD.operacao;
-         
+
   IF v_data_rev IS NULL THEN
           v_data_rev := CURRENT_TIMESTAMP;
         END IF;
-        
+
       -- GRAVA HISTÓRICO PARA TABELA FISICA
       INSERT INTO historico.fisica
-      (idpes, data_nasc, sexo, idpes_mae, idpes_pai, idpes_responsavel, idesco, ideciv, idpes_con, data_uniao, data_obito, nacionalidade, idpais_estrangeiro, data_chegada_brasil, idmun_nascimento, ultima_empresa, idocup, nome_mae, nome_pai, nome_conjuge, nome_responsavel, justificativa_provisorio, idpes_rev, data_rev, origem_gravacao, idsis_rev, idpes_cad, data_cad, idsis_cad, operacao) VALUES 
+      (idpes, data_nasc, sexo, idpes_mae, idpes_pai, idpes_responsavel, idesco, ideciv, idpes_con, data_uniao, data_obito, nacionalidade, idpais_estrangeiro, data_chegada_brasil, idmun_nascimento, ultima_empresa, idocup, nome_mae, nome_pai, nome_conjuge, nome_responsavel, justificativa_provisorio, idpes_rev, data_rev, origem_gravacao, idsis_rev, idpes_cad, data_cad, idsis_cad, operacao) VALUES
       (v_idpes, v_data_nasc, v_sexo, v_idpes_mae, v_idpes_pai, v_idpes_responsavel, v_idesco, v_ideciv, v_idpes_con, v_data_uniao, v_data_obito, v_nacionalidade, v_idpais_estrangeiro, v_data_chegada_brasil, v_idmun_nascimento, v_ultima_empresa, v_idocup, v_nome_mae, v_nome_pai, v_nome_conjuge, v_nome_responsavel, v_justificativa_provisorio, v_idpes_rev, v_data_rev, v_origem_gravacao, v_idsis_rev, v_idpes_cad, v_data_cad, v_idsis_cad, v_operacao);
-      
+
    RETURN NEW;
-   
+
 END; $$
     LANGUAGE plpgsql;

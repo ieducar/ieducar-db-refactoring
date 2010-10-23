@@ -1,7 +1,3 @@
---
--- Name: fcn_grava_historico_municipio(); Type: FUNCTION; Schema: historico; Owner: -
---
-
 CREATE FUNCTION fcn_grava_historico_municipio() RETURNS "trigger"
     AS $$
 DECLARE
@@ -42,17 +38,17 @@ BEGIN
    v_data_cad     := OLD.data_cad;
    v_idsis_cad      := OLD.idsis_cad;
    v_operacao     := OLD.operacao;
-         
+
   IF v_data_rev IS NULL THEN
           v_data_rev := CURRENT_TIMESTAMP;
         END IF;
-        
+
       -- GRAVA HISTÓRICO PARA TABELA MUNICIPIO
       INSERT INTO historico.municipio
-      (idmun, sigla_uf, nome, area_km2, idmreg, idasmun, cod_ibge, geom, tipo, idmun_pai, idpes_rev, data_rev, origem_gravacao, idsis_rev, idpes_cad, data_cad, idsis_cad, operacao) VALUES 
+      (idmun, sigla_uf, nome, area_km2, idmreg, idasmun, cod_ibge, geom, tipo, idmun_pai, idpes_rev, data_rev, origem_gravacao, idsis_rev, idpes_cad, data_cad, idsis_cad, operacao) VALUES
       (v_idmun, v_sigla_uf, v_nome, v_area_km2, v_idmreg, v_idasmun, v_cod_ibge, v_geom, v_tipo, v_idmun_pai, v_idpes_rev, v_data_rev, v_origem_gravacao, v_idsis_rev, v_idpes_cad, v_data_cad, v_idsis_cad, v_operacao);
-      
+
    RETURN NEW;
-   
+
 END; $$
     LANGUAGE plpgsql;

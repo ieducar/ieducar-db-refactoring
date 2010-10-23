@@ -1,7 +1,3 @@
---
--- Name: fcn_insert_fone_pessoa(integer, integer, integer, integer, character, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_insert_fone_pessoa(integer, integer, integer, integer, character, integer, integer) RETURNS integer
     AS $_$
 DECLARE

@@ -1,7 +1,3 @@
---
--- Name: fcn_obter_primeiro_ultimo_nome_juridica(text); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_obter_primeiro_ultimo_nome_juridica(text) RETURNS text
     AS $_$
 DECLARE

@@ -1,7 +1,3 @@
---
--- Name: fcn_fonetiza(text); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_fonetiza(text) RETURNS SETOF text
     AS $_$
    DECLARE

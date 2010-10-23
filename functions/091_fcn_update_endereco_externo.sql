@@ -1,13 +1,9 @@
---
--- Name: fcn_update_endereco_externo(integer, integer, character varying, character varying, character varying, integer, character varying, character varying, character varying, integer, character varying, character varying, character, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_update_endereco_externo(integer, integer, character varying, character varying, character varying, integer, character varying, character varying, character varying, integer, character varying, character varying, character, integer, integer) RETURNS integer
     AS $_$
 DECLARE
   -- Parâmetro recebidos
   v_id_pes ALIAS for $1;
-  v_tipo ALIAS for $2; 
+  v_tipo ALIAS for $2;
   v_sigla_uf ALIAS for $3;
   v_idtlog ALIAS for $4;
     v_logradouro ALIAS for $5;
@@ -21,7 +17,7 @@ DECLARE
     v_origem_gravacao ALIAS for $13;
     v_idpes_rev ALIAS for $14;
     v_idsis_rev ALIAS for $15;
-  
+
 BEGIN
   -- Atualiza dados na tabela endereco_externo
   UPDATE cadastro.endereco_externo

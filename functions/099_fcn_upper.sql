@@ -1,7 +1,3 @@
---
--- Name: fcn_upper(text); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_upper(text) RETURNS text
     AS $_$
    DECLARE

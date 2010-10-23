@@ -1,7 +1,3 @@
---
--- Name: fcn_cons_log_fonetica(text, bigint); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_cons_log_fonetica(text, bigint) RETURNS SETOF typ_idlog
     AS $_$
    DECLARE

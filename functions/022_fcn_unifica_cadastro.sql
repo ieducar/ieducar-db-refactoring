@@ -1,7 +1,3 @@
---
--- Name: fcn_unifica_cadastro(numeric, numeric); Type: FUNCTION; Schema: consistenciacao; Owner: -
---
-
 CREATE FUNCTION fcn_unifica_cadastro(numeric, numeric) RETURNS integer
     AS $_$
 DECLARE

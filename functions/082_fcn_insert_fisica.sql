@@ -1,7 +1,3 @@
---
--- Name: fcn_insert_fisica(integer, character varying, character varying, integer, integer, integer, integer, integer, integer, character varying, character varying, integer, integer, character varying, integer, character varying, integer, character varying, character varying, character varying, character varying, character varying, character, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_insert_fisica(integer, character varying, character varying, integer, integer, integer, integer, integer, integer, character varying, character varying, integer, integer, character varying, integer, character varying, integer, character varying, character varying, character varying, character varying, character varying, character, integer, integer) RETURNS integer
     AS $_$
 DECLARE
@@ -100,22 +96,22 @@ BEGIN
         v_sexo_aux := public.fcn_upper(v_sexo);
     END IF;
   -- Insere dados na tabela funcionário
-    INSERT INTO cadastro.fisica (idpes, data_nasc, sexo, 
-                                idpes_mae,idpes_pai, idpes_responsavel, 
-                                idesco, ideciv, idpes_con, 
+    INSERT INTO cadastro.fisica (idpes, data_nasc, sexo,
+                                idpes_mae,idpes_pai, idpes_responsavel,
+                                idesco, ideciv, idpes_con,
                                 data_uniao, data_obito, nacionalidade,
-                                idpais_estrangeiro, data_chegada_brasil, idmun_nascimento, 
-                                ultima_empresa, idocup, nome_mae, 
-                                nome_pai, nome_conjuge, 
+                                idpais_estrangeiro, data_chegada_brasil, idmun_nascimento,
+                                ultima_empresa, idocup, nome_mae,
+                                nome_pai, nome_conjuge,
                                 nome_responsavel, justificativa_provisorio, origem_gravacao, idpes_cad, idsis_cad, data_cad, operacao)
     VALUES(v_id_pes,to_date(v_data_nasc,'DD/MM/YYYY'),v_sexo_aux,
-           v_id_pes_mae_aux, v_id_pes_pai_aux, v_id_pes_responsavel_aux, 
+           v_id_pes_mae_aux, v_id_pes_pai_aux, v_id_pes_responsavel_aux,
            v_id_esco_aux, v_id_eciv_aux, v_id_pes_con_aux,
            to_date(v_data_uniao,'DD/MM/YYYY'), to_date(v_data_obito,'DD/MM/YYYY'), v_nacionalidade_aux,
            v_id_pais_estrangeiro_aux, to_date(v_data_chegada,'DD/MM/YYYY'), v_id_mun_nascimento_aux,             public.fcn_upper(v_ultima_empresa), v_id_ocup_aux, public.fcn_upper(v_nome_mae),
-           public.fcn_upper(v_nome_pai), public.fcn_upper(v_nome_conjuge),         
+           public.fcn_upper(v_nome_pai), public.fcn_upper(v_nome_conjuge),
            public.fcn_upper(v_nome_responsavel), v_justificativa_provisorio, v_origem_gravacao, v_idpes_cad, v_idsis_cad, CURRENT_TIMESTAMP, 'I');
- 
+
   RETURN 0;
 END;$_$
     LANGUAGE plpgsql;

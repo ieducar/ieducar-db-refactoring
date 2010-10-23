@@ -1,7 +1,3 @@
---
--- Name: fcn_bef_pessoa_fonetiza(); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_bef_pessoa_fonetiza() RETURNS "trigger"
     AS $$
    DECLARE

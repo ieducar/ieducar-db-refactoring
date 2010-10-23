@@ -1,7 +1,3 @@
---
--- Name: fcn_insert_pessoa(integer, character varying, character varying, character varying, character varying, integer, character varying, character varying, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_insert_pessoa(integer, character varying, character varying, character varying, character varying, integer, character varying, character varying, integer, integer) RETURNS integer
     AS $_$
 DECLARE
@@ -16,7 +12,7 @@ DECLARE
   v_origem_gravacao ALIAS for $8;
       v_idpes_cad ALIAS for $9;
       v_idsis_cad ALIAS for $10;
-  
+
   idpes_logado integer;
 BEGIN
   idpes_logado := v_id_pes_logado;

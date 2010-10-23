@@ -1,7 +1,3 @@
---
--- Name: fcn_delete_grava_historico_pessoa(); Type: FUNCTION; Schema: historico; Owner: -
---
-
 CREATE FUNCTION fcn_delete_grava_historico_pessoa() RETURNS "trigger"
     AS $$
 DECLARE
@@ -32,17 +28,17 @@ BEGIN
    v_origem_gravacao  := OLD.origem_gravacao;
    v_idsis_rev    := OLD.idsis_rev;
    v_idsis_cad    := OLD.idsis_cad;
-      
+
   IF v_data_rev IS NULL THEN
           v_data_rev := CURRENT_TIMESTAMP;
         END IF;
-        
+
       -- GRAVA HISTÓRICO PARA TABELA PESSOA
       INSERT INTO historico.pessoa
-      (idpes, nome, idpes_cad, data_cad, url, tipo, idpes_rev, data_rev, email, situacao, origem_gravacao, idsis_rev, idsis_cad, operacao) VALUES 
+      (idpes, nome, idpes_cad, data_cad, url, tipo, idpes_rev, data_rev, email, situacao, origem_gravacao, idsis_rev, idsis_cad, operacao) VALUES
       (v_idpes, v_nome, v_idpes_cad, v_data_cad, v_url, v_tipo, v_idpes_rev, v_data_rev, v_email, v_situacao, v_origem_gravacao, v_idsis_rev, v_idsis_cad, 'E');
-      
+
    RETURN NEW;
-   
+
 END; $$
     LANGUAGE plpgsql;

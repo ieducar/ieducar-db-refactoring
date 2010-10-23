@@ -1,7 +1,3 @@
---
--- Name: fcn_documento_historico_campo(); Type: FUNCTION; Schema: consistenciacao; Owner: -
---
-
 CREATE FUNCTION fcn_documento_historico_campo() RETURNS "trigger"
     AS $$
 DECLARE

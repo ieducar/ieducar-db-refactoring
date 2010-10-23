@@ -1,7 +1,3 @@
---
--- Name: fcn_update_fisica(integer, character varying, character varying, integer, integer, integer, integer, integer, integer, character varying, character varying, integer, integer, character varying, integer, character varying, integer, character varying, character varying, character varying, character varying, character varying, character, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_update_fisica(integer, character varying, character varying, integer, integer, integer, integer, integer, integer, character varying, character varying, integer, integer, character varying, integer, character varying, integer, character varying, character varying, character varying, character varying, character varying, character, integer, integer) RETURNS integer
     AS $_$
 DECLARE
@@ -31,7 +27,7 @@ DECLARE
       v_origem_gravacao ALIAS for $23;
       v_idpes_rev ALIAS for $24;
       v_idsis_rev ALIAS for $25;
-    
+
       -- Outras variáveis
       v_id_pes_mae_aux integer;
       v_id_pes_pai_aux integer;
@@ -101,27 +97,27 @@ BEGIN
         v_sexo_aux := public.fcn_upper(v_sexo);
     END IF;
   -- Insere dados na tabela funcionário
-    UPDATE cadastro.fisica 
+    UPDATE cadastro.fisica
     SET data_nasc = to_date(v_data_nasc,'DD/MM/YYYY'),
-        sexo = v_sexo_aux, 
+        sexo = v_sexo_aux,
         idpes_mae = v_id_pes_mae_aux,
         idpes_pai = v_id_pes_pai_aux,
-        idpes_responsavel = v_id_pes_responsavel_aux, 
+        idpes_responsavel = v_id_pes_responsavel_aux,
         idesco = v_id_esco_aux,
-        ideciv = v_id_eciv_aux, 
-        idpes_con = v_id_pes_con_aux, 
-        data_uniao = to_date(v_data_uniao,'DD/MM/YYYY'), 
-        data_obito = to_date(v_data_obito,'DD/MM/YYYY'), 
+        ideciv = v_id_eciv_aux,
+        idpes_con = v_id_pes_con_aux,
+        data_uniao = to_date(v_data_uniao,'DD/MM/YYYY'),
+        data_obito = to_date(v_data_obito,'DD/MM/YYYY'),
         nacionalidade = v_nacionalidade_aux,
-        idpais_estrangeiro = v_id_pais_estrangeiro_aux, 
-        data_chegada_brasil = to_date(v_data_chegada,'DD/MM/YYYY'), 
-        idmun_nascimento = v_id_mun_nascimento_aux, 
-        ultima_empresa = public.fcn_upper(v_ultima_empresa), 
-        idocup = v_id_ocup_aux, 
-        nome_mae = public.fcn_upper(v_nome_mae), 
-        nome_pai = public.fcn_upper(v_nome_pai), 
+        idpais_estrangeiro = v_id_pais_estrangeiro_aux,
+        data_chegada_brasil = to_date(v_data_chegada,'DD/MM/YYYY'),
+        idmun_nascimento = v_id_mun_nascimento_aux,
+        ultima_empresa = public.fcn_upper(v_ultima_empresa),
+        idocup = v_id_ocup_aux,
+        nome_mae = public.fcn_upper(v_nome_mae),
+        nome_pai = public.fcn_upper(v_nome_pai),
         nome_conjuge = public.fcn_upper(v_nome_conjuge),
-        nome_responsavel = public.fcn_upper(v_nome_responsavel), 
+        nome_responsavel = public.fcn_upper(v_nome_responsavel),
         justificativa_provisorio = v_justificativa_provisorio,
   origem_gravacao = v_origem_gravacao,
   idpes_rev = v_idpes_rev,
@@ -129,7 +125,7 @@ BEGIN
   data_rev = CURRENT_TIMESTAMP,
   operacao = 'A'
     WHERE idpes = v_id_pes;
- 
+
   RETURN 0;
 END;$_$
     LANGUAGE plpgsql;

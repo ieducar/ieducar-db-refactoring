@@ -1,7 +1,3 @@
---
--- Name: fcn_grava_historico_logradouro(); Type: FUNCTION; Schema: historico; Owner: -
---
-
 CREATE FUNCTION fcn_grava_historico_logradouro() RETURNS "trigger"
     AS $$
 DECLARE
@@ -32,17 +28,17 @@ BEGIN
    v_data_cad     := OLD.data_cad;
    v_idsis_cad      := OLD.idsis_cad;
    v_operacao     := OLD.operacao;
-         
+
   IF v_data_rev IS NULL THEN
           v_data_rev := CURRENT_TIMESTAMP;
         END IF;
-        
+
       -- GRAVA HISTÓRICO PARA TABELA LOGRADOURO
       INSERT INTO historico.logradouro
-      (idlog, idtlog, nome, idmun, ident_oficial, idpes_rev, data_rev, origem_gravacao, idsis_rev, idpes_cad, data_cad, idsis_cad, operacao) VALUES 
+      (idlog, idtlog, nome, idmun, ident_oficial, idpes_rev, data_rev, origem_gravacao, idsis_rev, idpes_cad, data_cad, idsis_cad, operacao) VALUES
       (v_idlog, v_idtlog, v_nome, v_idmun, v_ident_oficial, v_idpes_rev, v_data_rev, v_origem_gravacao, v_idsis_rev, v_idpes_cad, v_data_cad, v_idsis_cad, v_operacao);
-      
+
    RETURN NEW;
-   
+
 END; $$
     LANGUAGE plpgsql;

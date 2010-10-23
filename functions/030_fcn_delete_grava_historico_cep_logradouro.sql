@@ -1,7 +1,3 @@
---
--- Name: fcn_delete_grava_historico_cep_logradouro(); Type: FUNCTION; Schema: historico; Owner: -
---
-
 CREATE FUNCTION fcn_delete_grava_historico_cep_logradouro() RETURNS "trigger"
     AS $$
 DECLARE
@@ -28,17 +24,17 @@ BEGIN
    v_idpes_cad    := OLD.idpes_cad;
    v_data_cad   := OLD.data_cad;
    v_idsis_cad    := OLD.idsis_cad;
-         
+
   IF v_data_rev IS NULL THEN
           v_data_rev := CURRENT_TIMESTAMP;
         END IF;
-        
+
       -- GRAVA HISTÓRICO PARA TABELA CEP_LOGRADOURO
       INSERT INTO historico.cep_logradouro
-      (cep, idlog, nroini, nrofin, idpes_rev, data_rev, origem_gravacao, idsis_rev, idpes_cad, data_cad, idsis_cad, operacao) VALUES 
+      (cep, idlog, nroini, nrofin, idpes_rev, data_rev, origem_gravacao, idsis_rev, idpes_cad, data_cad, idsis_cad, operacao) VALUES
       (v_cep, v_idlog, v_nroini, v_nrofin, v_idpes_rev, v_data_rev, v_origem_gravacao, v_idsis_rev, v_idpes_cad, v_data_cad, v_idsis_cad, 'E');
-      
+
    RETURN NEW;
-   
+
 END; $$
     LANGUAGE plpgsql;

@@ -1,7 +1,3 @@
---
--- Name: fcn_fonetiza_logr_geral(); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_fonetiza_logr_geral() RETURNS text
     AS $$
    DECLARE

@@ -1,7 +1,3 @@
---
--- Name: fcn_update_pessoa(integer, text, character varying, character varying, character varying, integer, character varying, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_update_pessoa(integer, text, character varying, character varying, character varying, integer, character varying, integer, integer) RETURNS integer
     AS $_$
 DECLARE
@@ -15,7 +11,7 @@ DECLARE
   v_origem_gravacao ALIAS for $7;
       v_idpes_rev ALIAS for $8;
       v_idsis_rev ALIAS for $9;
-  
+
   idpes_logado integer;
 BEGIN
   idpes_logado := v_id_pes_logado;

@@ -1,7 +1,3 @@
---
--- Name: fcn_update_fisica_cpf(integer, text, character, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_update_fisica_cpf(integer, text, character, integer, integer) RETURNS integer
     AS $_$
 DECLARE
@@ -11,10 +7,10 @@ DECLARE
   v_origem_gravacao ALIAS for $3;
   v_idpes_rev ALIAS for $4;
   v_idsis_rev ALIAS for $5;
-  
+
 BEGIN
   -- Atualiza dados na tabela fisica_cpf
-  UPDATE cadastro.fisica_cpf SET 
+  UPDATE cadastro.fisica_cpf SET
     origem_gravacao = v_origem_gravacao,
     idpes_rev = v_idpes_rev,
     idsis_rev = v_idsis_rev,

@@ -1,7 +1,3 @@
---
--- Name: fcn_consulta_fonetica(text); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_consulta_fonetica(text) RETURNS SETOF typ_idpes
     AS $_$
    DECLARE

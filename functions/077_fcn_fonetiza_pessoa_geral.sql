@@ -1,7 +1,3 @@
---
--- Name: fcn_fonetiza_pessoa_geral(); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_fonetiza_pessoa_geral() RETURNS text
     AS $$
    DECLARE

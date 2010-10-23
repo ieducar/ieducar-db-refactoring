@@ -1,7 +1,3 @@
---
--- Name: fcn_update_fone_pessoa(integer, integer, integer, integer, character, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_update_fone_pessoa(integer, integer, integer, integer, character, integer, integer) RETURNS integer
     AS $_$
 DECLARE
@@ -13,10 +9,10 @@ DECLARE
   v_origem_gravacao ALIAS for $5;
       v_idpes_rev ALIAS for $6;
       v_idsis_rev ALIAS for $7;
-  
+
 BEGIN
   -- Atualiza dados na tabela fone_pessoa
-  UPDATE cadastro.fone_pessoa 
+  UPDATE cadastro.fone_pessoa
     SET ddd = v_ddd,
         fone = v_fone,
   origem_gravacao = v_origem_gravacao,

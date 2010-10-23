@@ -1,7 +1,3 @@
---
--- Name: fcn_calcular_qtde_unidade(character varying, integer, integer, numeric, integer, integer); Type: FUNCTION; Schema: alimentos; Owner: -
---
-
 CREATE FUNCTION fcn_calcular_qtde_unidade(character varying, integer, integer, numeric, integer, integer) RETURNS numeric
     AS $_$
 DECLARE

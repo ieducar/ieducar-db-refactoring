@@ -1,7 +1,3 @@
---
--- Name: fcn_delete_temp_cadastro_unificacao_cmf(integer); Type: FUNCTION; Schema: consistenciacao; Owner: -
---
-
 CREATE FUNCTION fcn_delete_temp_cadastro_unificacao_cmf(integer) RETURNS integer
     AS $_$
 DECLARE

@@ -1,7 +1,3 @@
---
--- Name: fcn_bef_ins_juridica(); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_bef_ins_juridica() RETURNS "trigger"
     AS $$
    DECLARE

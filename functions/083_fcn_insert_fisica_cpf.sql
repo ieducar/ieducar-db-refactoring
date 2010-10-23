@@ -1,7 +1,3 @@
---
--- Name: fcn_insert_fisica_cpf(integer, text, character, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_insert_fisica_cpf(integer, text, character, integer, integer) RETURNS integer
     AS $_$
 DECLARE

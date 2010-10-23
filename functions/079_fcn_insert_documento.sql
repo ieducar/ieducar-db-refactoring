@@ -1,13 +1,9 @@
---
--- Name: fcn_insert_documento(integer, character varying, character varying, character varying, character varying, integer, integer, integer, integer, character varying, character varying, character varying, character varying, integer, integer, character varying, character varying, integer, integer, character, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_insert_documento(integer, character varying, character varying, character varying, character varying, integer, integer, integer, integer, character varying, character varying, character varying, character varying, integer, integer, character varying, character varying, integer, integer, character, integer, integer) RETURNS integer
     AS $_$
 DECLARE
   -- Parâmetro recebidos
   v_id_pes ALIAS for $1;
-  v_rg ALIAS for $2;  
+  v_rg ALIAS for $2;
   v_orgao_exp_rg ALIAS for $3;
   v_data_exp_rg ALIAS for $4;
   v_sigla_uf_exp_rg ALIAS for $5;
@@ -22,13 +18,13 @@ DECLARE
   v_num_cart_trabalho ALIAS for $14;
       v_serie_cart_trabalho ALIAS for $15;
       v_data_emissao_cart_trabalho ALIAS for $16;
-  v_num_tit_eleitor ALIAS for $17;  
+  v_num_tit_eleitor ALIAS for $17;
   v_zona_tit_eleitor ALIAS for $18;
   v_secao_tit_eleitor ALIAS for $19;
   v_origem_gravacao ALIAS for $20;
   v_idpes_cad ALIAS for $21;
   v_idsis_cad ALIAS for $22;
-    
+
     -- Outras variáveis
       v_rg_aux varchar(10);
       v_orgao_exp_rg_aux varchar(10);
@@ -121,9 +117,9 @@ BEGIN
     ELSE
         v_secao_tit_eleitor_aux := v_secao_tit_eleitor;
     END IF;
- 
+
   -- Insere dados na tabela funcionário
-    INSERT INTO cadastro.documento (idpes, rg, idorg_exp_rg, 
+    INSERT INTO cadastro.documento (idpes, rg, idorg_exp_rg,
                                 data_exp_rg, sigla_uf_exp_rg,
                                 tipo_cert_civil, num_termo,
                                 num_livro, num_folha,

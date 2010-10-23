@@ -1,7 +1,3 @@
---
--- Name: fcn_aft_logradouro_fonetiza(); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_aft_logradouro_fonetiza() RETURNS "trigger"
     AS $$
    DECLARE

@@ -1,7 +1,3 @@
---
--- Name: fcn_endereco_pessoa_historico_campo(); Type: FUNCTION; Schema: consistenciacao; Owner: -
---
-
 CREATE FUNCTION fcn_endereco_pessoa_historico_campo() RETURNS "trigger"
     AS $$
 DECLARE
@@ -25,9 +21,9 @@ DECLARE
   v_credibilidade_alta    numeric;
   v_sem_credibilidade   numeric;
   v_nova_credibilidade    numeric;
-  
+
   v_registro      record;
-  
+
   -- ID dos campos
   v_idcam_cep_correspondencia     numeric;
   v_idcam_id_logradouro_correspondencia   numeric;
@@ -35,28 +31,28 @@ DECLARE
   v_idcam_numero_correspondencia      numeric;
   v_idcam_letra_correspondencia     numeric;
   v_idcam_complemento_correspondencia   numeric;
-  
+
   v_idcam_cep_residencial       numeric;
   v_idcam_id_logradouro_residencial   numeric;
   v_idcam_id_bairro_residencial     numeric;
   v_idcam_numero_residencial      numeric;
   v_idcam_letra_residencial     numeric;
   v_idcam_complemento_residencial     numeric;
-  
+
   v_idcam_cep_comercial       numeric;
   v_idcam_id_logradouro_comercial     numeric;
   v_idcam_id_bairro_comercial     numeric;
   v_idcam_numero_comercial      numeric;
   v_idcam_letra_comercial       numeric;
   v_idcam_complemento_comercial     numeric;
-  
+
   v_idcam_cep     numeric;
   v_idcam_id_logradouro   numeric;
   v_idcam_id_bairro   numeric;
   v_idcam_numero      numeric;
   v_idcam_letra     numeric;
   v_idcam_complemento   numeric;
-  
+
   /*
   consistenciacao.historico_campo.credibilidade: 1 = Máxima, 2 = Alta, 3 = Média, 4 = Baixa, 5 = Sem credibilidade
   cadastro.pessoa.origem_gravacao: M = Migração, U = Usuário, C = Rotina de confrontação, O = Oscar
@@ -64,14 +60,14 @@ DECLARE
   BEGIN
     v_idpes       := NEW.idpes;
     v_tipo_endereco     := NEW.tipo;
-    
+
     v_cep_novo      := NEW.cep;
     v_id_logradouro_novo    := NEW.idlog;
     v_id_bairro_novo    := NEW.idbai;
     v_numero_novo     := NEW.numero;
     v_letra_nova      := NEW.letra;
     v_complemento_novo    := NEW.complemento;
-    
+
     IF TG_OP <> 'UPDATE' THEN
       v_cep_antigo    := 0;
       v_id_logradouro_antigo  := 0;
@@ -87,7 +83,7 @@ DECLARE
       v_letra_antiga    := COALESCE(OLD.letra, '');
       v_complemento_antigo  := COALESCE(OLD.complemento, '');
     END IF;
-    
+
     v_idcam_cep_correspondencia     := 53;
     v_idcam_id_logradouro_correspondencia   := 47;
     v_idcam_id_bairro_correspondencia   := 52;
@@ -106,13 +102,13 @@ DECLARE
     v_idcam_numero_comercial      := 67;
     v_idcam_letra_comercial       := 68;
     v_idcam_complemento_comercial     := 69;
-    
-    v_nova_credibilidade := 0;  
+
+    v_nova_credibilidade := 0;
     v_credibilidade_maxima := 1;
     v_credibilidade_alta := 2;
     v_sem_credibilidade := 5;
     v_comando := 'SELECT origem_gravacao FROM cadastro.pessoa WHERE idpes='||quote_literal(v_idpes)||';';
-    
+
     FOR v_registro IN EXECUTE v_comando LOOP
       v_origem_gravacao := v_registro.origem_gravacao;
     END LOOP;
@@ -156,50 +152,50 @@ DECLARE
       IF v_id_bairro_novo <> v_id_bairro_antigo THEN
         EXECUTE 'SELECT consistenciacao.fcn_gravar_historico_campo('||v_idpes||','||v_idcam_id_bairro||','||v_nova_credibilidade||');';
       END IF;
-      
+
       -- NUMERO
       IF v_numero_novo <> v_numero_antigo THEN
         EXECUTE 'SELECT consistenciacao.fcn_gravar_historico_campo('||v_idpes||','||v_idcam_numero||','||v_nova_credibilidade||');';
       END IF;
-      
+
       -- LETRA
       IF v_letra_nova <> v_letra_antiga THEN
         EXECUTE 'SELECT consistenciacao.fcn_gravar_historico_campo('||v_idpes||','||v_idcam_letra||','||v_nova_credibilidade||');';
       END IF;
-      
+
       -- COMPLEMENTO
       IF v_complemento_novo <> v_complemento_antigo THEN
         EXECUTE 'SELECT consistenciacao.fcn_gravar_historico_campo('||v_idpes||','||v_idcam_complemento||','||v_nova_credibilidade||');';
       END IF;
     END IF;
-    
+
     -- Verificar os campos Vazios ou Nulos
-    
+
     -- CEP
     IF v_cep_novo <= 0 OR v_cep_novo IS NULL THEN
       EXECUTE 'SELECT consistenciacao.fcn_gravar_historico_campo('||v_idpes||','||v_idcam_cep||','||v_sem_credibilidade||');';
     END IF;
-    
+
     -- ID LOGRADOURO
     IF v_id_logradouro_novo <= 0 OR v_id_logradouro_novo IS NULL THEN
       EXECUTE 'SELECT consistenciacao.fcn_gravar_historico_campo('||v_idpes||','||v_idcam_id_logradouro||','||v_sem_credibilidade||');';
     END IF;
-    
+
     -- BAIRRO
     IF v_id_bairro_novo <= 0 OR v_id_bairro_novo IS NULL THEN
       EXECUTE 'SELECT consistenciacao.fcn_gravar_historico_campo('||v_idpes||','||v_idcam_id_bairro||','||v_sem_credibilidade||');';
     END IF;
-    
+
     -- NUMERO
     IF v_numero_novo <= 0 OR v_numero_novo IS NULL THEN
       EXECUTE 'SELECT consistenciacao.fcn_gravar_historico_campo('||v_idpes||','||v_idcam_numero||','||v_sem_credibilidade||');';
     END IF;
-    
+
     -- LETRA
     IF TRIM(v_letra_nova)='' OR v_letra_nova IS NULL THEN
       EXECUTE 'SELECT consistenciacao.fcn_gravar_historico_campo('||v_idpes||','||v_idcam_letra||','||v_sem_credibilidade||');';
     END IF;
-    
+
     -- COMPLEMENTO
     IF TRIM(v_complemento_novo)='' OR v_complemento_novo IS NULL THEN
       EXECUTE 'SELECT consistenciacao.fcn_gravar_historico_campo('||v_idpes||','||v_idcam_complemento||','||v_sem_credibilidade||');';

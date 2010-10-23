@@ -1,18 +1,14 @@
---
--- Name: fcn_gravar_historico_campo(numeric, numeric, numeric); Type: FUNCTION; Schema: consistenciacao; Owner: -
---
-
 CREATE FUNCTION fcn_gravar_historico_campo(numeric, numeric, numeric) RETURNS integer
     AS $_$
 DECLARE
   v_idpes ALIAS for $1;
   v_idcam ALIAS for $2;
   v_credibilidade ALIAS for $3;
-  
+
   v_comando   text;
-  v_existe_historico  numeric;  
+  v_existe_historico  numeric;
   v_registro    record;
-  
+
   BEGIN
     -- verificar se já existe histórico para o campo
     v_comando := 'SELECT idcam FROM consistenciacao.historico_campo WHERE idpes='||quote_literal(v_idpes)||' AND idcam='||quote_literal(v_idcam)||';';

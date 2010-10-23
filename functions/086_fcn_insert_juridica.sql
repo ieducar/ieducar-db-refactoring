@@ -1,7 +1,3 @@
---
--- Name: fcn_insert_juridica(integer, character varying, character varying, character varying, character, integer, integer); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_insert_juridica(integer, character varying, character varying, character varying, character, integer, integer) RETURNS integer
     AS $_$
 DECLARE
@@ -13,7 +9,7 @@ DECLARE
   v_origem_gravacao ALIAS for $5;
       v_idpes_cad ALIAS for $6;
       v_idsis_cad ALIAS for $7;
-  
+
 BEGIN
   -- Insere dados na tabela juridica
     INSERT INTO cadastro.juridica (idpes,cnpj,fantasia,insc_estadual, origem_gravacao, idpes_cad, idsis_cad, data_cad, operacao)

@@ -1,7 +1,3 @@
---
--- Name: fcn_fonetiza_primeiro_ultimo_nome(text); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_fonetiza_primeiro_ultimo_nome(text) RETURNS text
     AS $_$
 DECLARE

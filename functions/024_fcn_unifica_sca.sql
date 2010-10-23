@@ -1,7 +1,3 @@
---
--- Name: fcn_unifica_sca(numeric, numeric); Type: FUNCTION; Schema: consistenciacao; Owner: -
---
-
 CREATE FUNCTION fcn_unifica_sca(numeric, numeric) RETURNS integer
     AS $_$
 DECLARE
@@ -51,7 +47,7 @@ BEGIN
          (SELECT login FROM usuario WHERE idpes ='|| v_idpesVelho ||');';
   --LOG_ERRO--
   EXECUTE 'UPDATE log_erro SET idpes = '||v_idpesNovo||' WHERE idpes = '||v_idpesVelho||';';
-  
+
   --USUARIO--
   EXECUTE 'DELETE FROM usuario WHERE idpes ='|| v_idpesVelho||';';
   RETURN 0;

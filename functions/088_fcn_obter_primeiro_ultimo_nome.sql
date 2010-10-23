@@ -1,7 +1,3 @@
---
--- Name: fcn_obter_primeiro_ultimo_nome(text); Type: FUNCTION; Schema: public; Owner: -
---
-
 CREATE FUNCTION fcn_obter_primeiro_ultimo_nome(text) RETURNS text
     AS $_$
 DECLARE
@@ -126,12 +122,12 @@ DECLARE
         IF v_posicao_espaco_primeiro_nome > 0 THEN
           v_primeiro_nome := SUBSTR(v_nome, 1, (v_posicao_espaco_primeiro_nome - 1));
         END IF;
-        
+
         -- obter o penultimo nome
         IF v_posicao_espaco_primeiro_nome > 0 THEN
           v_posicao_espaco_ultimo_nome := 0;
           v_cont := 1;
-          
+
           -- obter posição do espaço em branco anterior ao último nome
           WHILE v_cont < LENGTH(v_nome) LOOP
           IF SUBSTR(v_nome, v_cont, 1) = ' ' THEN

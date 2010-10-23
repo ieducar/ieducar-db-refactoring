@@ -1,7 +1,3 @@
---
--- Name: fcn_aft_ins_endereco_pessoa(); Type: FUNCTION; Schema: cadastro; Owner: -
---
-
 CREATE FUNCTION fcn_aft_ins_endereco_pessoa() RETURNS "trigger"
     AS $$
 DECLARE
